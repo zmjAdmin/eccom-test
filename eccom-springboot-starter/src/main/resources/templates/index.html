@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>index</title>
+</head>
+<body>
+
+    <!-- URL或地址 -->
+    <script th:src="@{/static/js/test.js}"></script>
+    <a th:href="@{https://www.baidu.com}">百度一下</a>
+
+    <!-- 绑定内容 -->
+    <div th:text="${name}"></div>
+    <div th:utext="${name}"></div>
+    <hr />
+
+    <!-- 绑定属性 -->
+    用户名：<input type="text" th:id="${user.username}" th:name="${user.username}" th:value="${user.username}" />
+    <br />
+    用户年龄：<input type="text" th:value="${user.age}" />
+    <br />
+    用户生日：<input type="text" th:value="${user.birthday}" />
+    <br />
+    用户生日：<input type="text" th:value="${#dates.format(user.birthday, 'yyyy-MM-dd HH:mm:ss')}" />
+    <hr />
+
+    <!-- 对象简写 -->
+    <div th:object="${user}">
+        <!-- 绑定属性 -->
+        用户名：<input type="text" th:id="*{username}" th:name="*{username}" th:value="*{username}" />
+        <br />
+        用户年龄：<input type="text" th:value="*{age}" />
+        <br />
+        用户生日：<input type="text" th:value="*{birthday}" />
+        <br />
+        用户生日：<input type="text" th:value="*{#dates.format(birthday, 'yyyy-MM-dd HH:mm:ss')}" />
+        <hr />
+    </div>
+
+    <!-- 比较 -->
+    <div th:if="${user.age == 18}">十八岁</div>
+    <div th:if="${user.age gt 18}">大于十八岁</div>
+    <div th:if="${user.age lt 18}">小于十八岁</div>
+    <div th:if="${user.age ge 18}">大于等于十八岁</div>
+    <div th:if="${user.age le 18}">小于等于十八岁</div>
+    <hr />
+
+    <!-- 选择框 -->
+    <select>
+        <option th:selected="${user.username eq '赵敏杰'}">赵敏杰</option>
+        <option th:selected="${user.username eq 'eccom'}">eccom</option>
+        <option th:selected="${user.username eq '马云'}">马云</option>
+    </select>
+
+</body>
+</html>
