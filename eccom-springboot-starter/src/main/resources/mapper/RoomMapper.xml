@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.eccom.starter.mapper.RoomMapper">
+  <resultMap id="BaseResultMap" type="com.eccom.starter.entity.Room">
+    <id column="room_id" jdbcType="INTEGER" property="roomId" />
+    <result column="room_no" jdbcType="VARCHAR" property="roomNo" />
+    <result column="room_type_id" jdbcType="INTEGER" property="roomTypeId" />
+    <result column="room_picture" jdbcType="VARCHAR" property="roomPicture" />
+    <result column="room_status" jdbcType="VARCHAR" property="roomStatus" />
+    <result column="room_del" jdbcType="INTEGER" property="roomDel" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from room
+    where room_id = #{roomId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.eccom.starter.entity.Room">
+    insert into room (room_id, room_no, room_type_id, 
+      room_picture, room_status, room_del
+      )
+    values (#{roomId,jdbcType=INTEGER}, #{roomNo,jdbcType=VARCHAR}, #{roomTypeId,jdbcType=INTEGER}, 
+      #{roomPicture,jdbcType=VARCHAR}, #{roomStatus,jdbcType=VARCHAR}, #{roomDel,jdbcType=INTEGER}
+      )
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="com.eccom.starter.entity.Room">
+    update room
+    set room_no = #{roomNo,jdbcType=VARCHAR},
+      room_type_id = #{roomTypeId,jdbcType=INTEGER},
+      room_picture = #{roomPicture,jdbcType=VARCHAR},
+      room_status = #{roomStatus,jdbcType=VARCHAR},
+      room_del = #{roomDel,jdbcType=INTEGER}
+    where room_id = #{roomId,jdbcType=INTEGER}
+  </update>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select room_id, room_no, room_type_id, room_picture, room_status, room_del
+    from room
+    where room_id = #{roomId,jdbcType=INTEGER}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select room_id, room_no, room_type_id, room_picture, room_status, room_del
+    from room
+  </select>
+</mapper>
