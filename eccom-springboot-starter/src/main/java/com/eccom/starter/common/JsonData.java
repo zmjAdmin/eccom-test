@@ -42,6 +42,10 @@ public class JsonData {
         return new JsonData(500, msg, null);
     }
 
+    public static JsonData error(Object data) {
+        return new JsonData(500, "error", data);
+    }
+
     public static JsonData error(int code, String msg) {
         return new JsonData(code, msg, null);
     }
