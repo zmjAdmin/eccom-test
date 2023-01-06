@@ -1,4 +1,4 @@
-package com.eccom.security.pojo.dto;
+package com.eccom.demo.pojo.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

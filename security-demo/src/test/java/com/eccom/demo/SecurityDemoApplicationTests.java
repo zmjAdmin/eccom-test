@@ -1,4 +1,4 @@
-package com.eccom.security;
+package com.eccom.demo;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

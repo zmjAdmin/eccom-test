@@ -1,4 +1,4 @@
-package com.eccom.security.config;
+package com.eccom.demo.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.security.authentication.AuthenticationManager;

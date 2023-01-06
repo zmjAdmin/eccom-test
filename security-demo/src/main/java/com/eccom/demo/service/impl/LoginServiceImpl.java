@@ -1,7 +1,7 @@
-package com.eccom.security.service.impl;
+package com.eccom.demo.service.impl;
 
-import com.eccom.security.pojo.entity.User;
-import com.eccom.security.service.LoginService;
+import com.eccom.demo.pojo.entity.User;
+import com.eccom.demo.service.LoginService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;

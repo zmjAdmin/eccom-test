@@ -1,4 +1,4 @@
-package com.eccom.security.pojo.entity;
+package com.eccom.demo.pojo.entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

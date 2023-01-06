@@ -1,6 +1,6 @@
-package com.eccom.security.manager;
+package com.eccom.demo.manager;
 
-import com.eccom.security.pojo.dto.UserDetailsDTO;
+import com.eccom.demo.pojo.dto.UserDetailsDTO;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
