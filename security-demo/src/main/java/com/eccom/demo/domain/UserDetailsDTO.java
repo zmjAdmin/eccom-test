@@ -1,4 +1,4 @@
-package com.eccom.demo.pojo.dto;
+package com.eccom.demo.domain;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -9,12 +9,11 @@ import org.springframework.security.core.userdetails.UserDetails;
 import java.util.Collection;
 
 @Data
-@NoArgsConstructor
 @AllArgsConstructor
+@NoArgsConstructor
 public class UserDetailsDTO implements UserDetails {
 
-    private String username;
-    private String password;
+    private User user;
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
@@ -23,19 +22,29 @@ public class UserDetailsDTO implements UserDetails {
 
     @Override
     public String getPassword() {
-        return password;
+        return user.getPassword();
     }
 
     @Override
     public String getUsername() {
-        return username;
+        return user.getUserName();
     }
 
+    /**
+     * 账号是否未过期
+     *
+     * @return 是否未过期
+     */
     @Override
     public boolean isAccountNonExpired() {
         return true;
     }
 
+    /**
+     * 账号是否未锁定
+     *
+     * @return 是否未锁定
+     */
     @Override
     public boolean isAccountNonLocked() {
         return true;
@@ -46,6 +55,11 @@ public class UserDetailsDTO implements UserDetails {
         return true;
     }
 
+    /**
+     * 账号是否可用
+     *
+     * @return 是否可用
+     */
     @Override
     public boolean isEnabled() {
         return true;
